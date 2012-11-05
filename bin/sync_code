@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 #: usage 
 #: sync_code -u gzangirolami -s ebin -c ~/Alertlogic/repos/git/user-interface/ -r /home/gzangirolami/public_html/user-interface
