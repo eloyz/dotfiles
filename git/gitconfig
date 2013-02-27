@@ -31,4 +31,4 @@
 	untracked = cyan
 
 [format]
-	pretty = "%n%h %C(magenta) %aN %C(yellow)%d %C(cyan) %aD %n %Cgreen %s %Creset %n"
+	pretty = "%n%h %C(magenta) %aN %C(yellow)%d %C(cyan) %aD (%ar) %n %Cgreen %s %Creset %n"
