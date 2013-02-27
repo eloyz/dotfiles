@@ -31,7 +31,4 @@
 	untracked = cyan
 
 [format]
-	pretty = "%n%H %Cred %aN %Cblue %aD %n %Cgreen %s %Creset"
-
-[reviewboard]
-	url = http://epdev.alertlogic.net:4000
+	pretty = "%n%h %C(magenta) %aN %C(yellow)%d %C(cyan) %aD %n %Cgreen %s %Creset %n"
