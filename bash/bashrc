@@ -101,7 +101,7 @@ svndiff()
 {
   svn diff "${@}" | colordiff | less -R
 }
-alias svn="/usr/bin/svn --username gzangirolami $*"
+alias svn="/usr/bin/svn --username $(whoami) $*"
 
 if [ -f /opt/subversion/bin ]; then
   export PATH=/opt/subversion/bin:$PATH
@@ -132,11 +132,6 @@ if [ -f  /usr/local/git/contrib/completion/git-completion.bash ]; then
   source /usr/local/git/contrib/completion/git-completion.bash
 fi
 
-# Environment quick aliases
-function quick_env() {
-    workon $1 && cd $HOME/Code/$1
-}
-
 function runserver_auto() {
     if [ "$1" == "public" ]; then
         ip=`python -c "from urllib import urlopen; print urlopen('http://automation.whatismyip.com/n09230945.asp').read()"`
@@ -148,21 +143,12 @@ function runserver_auto() {
 }
 alias runserver="runserver_auto"
 
-# VPN Aliases
-alias cisco_vpn="/opt/cisco/vpn/bin/vpn"
-
 # Git Flags - TODO: move to gitconfig
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=0
 export GIT_SSL_NO_VERIFY=true
 alias gitlog="git log --stat --color --pretty='%n%H %Cred %aN %Cblue %aD %n %Cgreen %s %Creset'"
 alias gitdiff="git diff --color"
 alias gitstat="git diff --color --stat"
-
-# Postgres OSX
-if [ -d /Library/PostgreSQL/8.4/bin ]; then
-  alias psql="/Library/PostgreSQL/8.4/bin/psql"
-  alias postgres_start="sudo /Library/PostgreSQL/8.4/bin/pg_ctl -D /Library/PostgreSQL/8.4/data start"
-fi
 
 # Erlang Sucks
 if [ -d /usr/share/erlang ]; then
@@ -178,6 +164,8 @@ fi
 # Bash aliases
 # ls with entire path
 alias lsp="printf '$PWD/%s\n' *"
+# grunt javascript build & watch
+alias gw="grunt && grunt watch"
 
 # Python brew
 if [ -f $HOME/.pythonbrew/etc/bashrc ]; then
@@ -215,6 +203,3 @@ if [ -f $HOME/.bash_private ]; then
   . $HOME/.bash_private
 fi
 
-if [ -f $HOME/bash_completion/knife ]; then
-  . $HOME/bash_completion/knife
-fi
