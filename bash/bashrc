@@ -112,7 +112,7 @@ fi
 export WORKON_HOME=$HOME/.virtualenv
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 VIRTUAL_ENV_DISABLE_PROMPT=1
 
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
