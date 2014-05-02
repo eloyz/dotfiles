@@ -12,7 +12,7 @@ set number
 set mouse=a
 set mousehide
 
-set spell
+" set spell
 set hlsearch
 set showmatch
 set incsearch

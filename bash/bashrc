@@ -167,18 +167,6 @@ alias lsp="printf '$PWD/%s\n' *"
 # grunt javascript build & watch
 alias gw="grunt && grunt watch"
 
-# Python brew
-if [ -f $HOME/.pythonbrew/etc/bashrc ]; then
-  source $HOME/.pythonbrew/etc/bashrc
-fi
-
-# Perl
-if [ -f $HOME/perl5/perlbrew/etc/bashrc ]; then
-  PERL_CPANM_OPT="--local-lib=~/perl5"
-  source ~/perl5/perlbrew/etc/bashrc
-  export PATH=$PATH:~/perl5/bin
-fi
-
 # Node JS
 if [ -d /usr/local/lib/node_modules ]; then
   export NODE_PATH="/usr/local/lib/node_modules"
