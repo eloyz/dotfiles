@@ -183,7 +183,6 @@ export LC_CTYPE=en_US.UTF-8
 # cf. http://mult.ifario.us/p/getting-bash-completion-magic-on-os-x
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-
 # Private bash settings
 if [ -f $HOME/.bash_private ]; then
   . $HOME/.bash_private
@@ -193,4 +192,7 @@ fi
 if [ -f $HOME/.bash_decisio ]; then
   . $HOME/.bash_decisio
 fi
+
+# Source goto
+[[ -s "/usr/local/share/goto.sh" ]] && source /usr/local/share/goto.sh
 
