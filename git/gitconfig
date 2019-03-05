@@ -33,5 +33,7 @@
 [format]
 	pretty = "%n%h %C(magenta) %aN %C(yellow)%d %C(cyan) %aD (%ar) %n %Cgreen %s %Creset %n"
 [user]
-	name = glenbot
-	email = glenbot@gmail.com
+	name = Eloy Zuniga Jr.
+	email = eloyz.email@gmail.com
+[diff "sopsdiffer"]
+	textconv = sops -d
