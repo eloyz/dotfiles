@@ -189,3 +189,8 @@ if [ -f $HOME/.bash_private ]; then
   . $HOME/.bash_private
 fi
 
+# bash decisio settings
+if [ -f $HOME/.bash_decisio ]; then
+  . $HOME/.bash_decisio
+fi
+
