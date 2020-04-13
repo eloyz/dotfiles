@@ -4,7 +4,7 @@
 OS=$(uname)
 
 if [ $OS == "Darwin" ]; then
-  export EDITOR='sublime -w'
+  export EDITOR='code -w'
 else
   export EDITOR=vim
 fi
