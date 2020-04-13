@@ -72,6 +72,7 @@ $ "
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
+
 if [ `uname` == "Darwin" ]; then
   export LSCOLORS=ExGxFxDxCxHxHxCbCeEbEb
   export LC_CTYPE=en_US.utf-8
@@ -79,7 +80,7 @@ else
   alias ls='ls --color=auto'
 fi
 
-alias git=hub
+# alias git=hub
 alias rvim="gvim --remote-silent"
 shopt -s histappend
 
@@ -96,38 +97,12 @@ export ARCHFLAGS="-arch i386 -arch x86_64"
 # add some bins
 export PATH=/usr/local/bin:/usr/local/sbin:~/bin:~/.bin:$PATH
 
-# Subversion
-svndiff()
-{
-  svn diff "${@}" | colordiff | less -R
-}
-alias svn="/usr/bin/svn --username $(whoami) $*"
-
-if [ -f /opt/subversion/bin ]; then
-  export PATH=/opt/subversion/bin:$PATH
-  alias svn17="/opt/subversion/bin/svn $0"
-fi
-
 # Virtualenvwrapper and pip settings
 export WORKON_HOME=$HOME/.virtualenv
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-# export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 VIRTUAL_ENV_DISABLE_PROMPT=1
-source /usr/local/bin/virtualenvwrapper.sh
-
-# if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-#   source /usr/local/bin/virtualenvwrapper.sh
-# fi
-
-# MySQL aliases
-if [ -d /usr/local/mysql/bin ]; then
-  export PATH=$PATH:/usr/local/mysql/bin
-  alias mysql=/usr/local/mysql/bin/mysql
-  alias mysqladmin=/usr/local/mysql/bin/mysqladmin
-  alias mysqldump=/usr/local/mysql/bin/mysqldump
-fi
 
 # Git autocompletion with HUB
 if [ -f  /usr/local/git/contrib/completion/git-completion.bash ]; then
@@ -151,23 +126,6 @@ export GIT_SSL_NO_VERIFY=true
 alias gitlog="git log --stat --color --pretty='%n%H %Cred %aN %Cblue %aD %n %Cgreen %s %Creset'"
 alias gitdiff="git diff --color"
 alias gitstat="git diff --color --stat"
-
-# Erlang Sucks
-if [ -d /usr/share/erlang ]; then
-  ERLANG_HOME=/usr/share/erlang
-  PATH=$PATH:$ERLANG_HOME/bin
-fi
-
-# Pear - PHP
-if [ -f $HOME/.pear/bin ]; then
-  PATH=$PATH:$HOME/.pear/bin
-fi
-
-# Bash aliases
-# ls with entire path
-alias lsp="printf '$PWD/%s\n' *"
-# grunt javascript build & watch
-alias gw="grunt && grunt watch"
 
 # Node JS
 if [ -d /usr/local/lib/node_modules ]; then
@@ -194,5 +152,3 @@ if [ -f $HOME/.bash_decisio ]; then
 fi
 
 # Source goto
-[[ -s "/usr/local/share/goto.sh" ]] && source /usr/local/share/goto.sh
-
