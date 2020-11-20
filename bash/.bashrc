@@ -95,7 +95,7 @@ fi
 export ARCHFLAGS="-arch i386 -arch x86_64"
 
 # add some bins
-export PATH=/usr/local/bin:/usr/local/sbin:~/bin:~/.bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:~/bin:~/.bin:~/.bin/k8s:$PATH
 
 # Virtualenvwrapper and pip settings
 export WORKON_HOME=$HOME/.virtualenv
