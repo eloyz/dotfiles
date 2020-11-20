@@ -14,8 +14,6 @@ alias account_bed='dc run --rm mcapi mc-api create_account --first-name=test --l
 alias account_none='dc run --rm mcapi mc-api create_account --first-name=test --last-name=none --username=test-none@example.com --password=test --email=test-none@example.com --phone="555-555-5555" --role=none'
 alias nuke='dc kill && dc rm -vf && dc up --remove-orphans -d && dc run --rm mcapi mc-api create_account --first-name=test --last-name=user --username=test@example.com --password=test --email=test@example.com --phone="555-555-5555" --role=all'
 
-# export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
-
 if [[ -f "/Users/eloy/Code/docker-development/.env_docker_development" ]]; then
     source "/Users/eloy/Code/docker-development/.env_docker_development"
 fi
