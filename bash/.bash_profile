@@ -26,6 +26,10 @@ if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
 
+if [ -f ~/.prompt ]; then
+   source ~/.prompt
+fi
+
 _codefresh_completions()
 {
     local cur args type_list

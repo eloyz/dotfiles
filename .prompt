@@ -1,0 +1,59 @@
+# PROMPT
+
+# https://ljones.dev/blog/bash-git-prompt/
+function parse_git_dirty {
+  STATUS="$(git status 2> /dev/null)"
+  if echo ${STATUS} | grep -c "renamed:"         &> /dev/null; then printf "> "; else printf ""; fi
+  if echo ${STATUS} | grep -c "branch is ahead:" &> /dev/null; then printf "! "; else printf ""; fi
+  if echo ${STATUS} | grep -c "new file::"       &> /dev/null; then printf "+ "; else printf ""; fi
+  if echo ${STATUS} | grep -c "Untracked files:" &> /dev/null; then printf "? "; else printf ""; fi
+  if echo ${STATUS} | grep -c "modified:"        &> /dev/null; then printf "* "; else printf ""; fi
+  if echo ${STATUS} | grep -c "deleted:"         &> /dev/null; then printf "- "; else printf ""; fi
+}
+
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
+}
+
+# default macOS prompt is: \h:\W \u\$
+
+# assemble the prompt string PS1
+# inspired from: https://stackoverflow.com/a/16715681
+# documented https://scriptingosx.com/2019/05/show-exit-code-in-your-bash-prompt/
+function __build_prompt {
+    local EXIT="$?" # store current exit code
+
+    # define some colors
+    local RESET='\[\e[0m\]'
+    local BLACK='\[\e[0;30m\]'
+    local RED='\[\e[0;31m\]'
+    local GREEN='\[\e[0;32m\]'
+    local YELLOW='\[\e[0;33m\]'
+    local BLUE='\[\e[0;34m\]'
+    local PURPLE='\[\e[0;35m\]'
+    local CYAN='\[\e[0;36m\]'
+    local SILVER='\[\e[0;37m\]'
+    local BOLD_GRAY='\[\e[1;30m\]'
+    # longer list of codes here: https://unix.stackexchange.com/a/124408
+
+    PS1="${PURPLE}\u${RESET} "                    # user
+    PS1+="at ${YELLOW}\h${RESET} "                # host
+
+    if [[ $EXIT -eq 0 ]]; then
+        PS1+="${GREEN}√${RESET} "                 # Add green for success
+    else
+        PS1+="${RED}${EXIT}${RESET} "             # Add red if exit code non 0
+    fi
+
+    PS1+="in ${GREEN}\w${RESET} "                 # working directory
+    PS1+="${CYAN}\$(parse_git_branch)${RESET}"    # git branch
+    PS1+="${PURPLE}\$(parse_git_dirty)${RESET}"   # git statis
+    PS1+="${CYAN}\D{%T}${RESET} "                 # time
+
+    PS1+="$ "
+}
+
+# set the prompt command
+# include previous values to maintain Apple Terminal support (window title path and sessions)
+# this is explained in /etc/bashrc_Apple_Terminal
+PROMPT_COMMAND="__build_prompt${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
