@@ -153,3 +153,6 @@ fi
 
 # Source goto
 [[ -s "/usr/local/Cellar/goto/2.0.0/etc/bash_completion.d/goto.sh" ]] && source /usr/local/Cellar/goto/2.0.0/etc/bash_completion.d/goto.sh
+
+# Fubectl
+[ -f "$HOME/.bin/fubectl.source" ] && source "$HOME/.bin/fubectl.source"
