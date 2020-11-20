@@ -6,6 +6,7 @@ alias ..='cd ..'
 alias gs='git status'
 alias mv='mv -i'
 alias rm='rm -i'
+alias cat='bat'
 
 alias dc='docker-compose'
 alias account_all='dc run --rm mcapi mc-api create_account --first-name=test --last-name=user --username=test@example.com --password=test --email=test@example.com --phone="555-555-5555" --role=all'
