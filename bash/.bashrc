@@ -156,3 +156,6 @@ fi
 
 # Fubectl
 [ -f "$HOME/.bin/fubectl.source" ] && source "$HOME/.bin/fubectl.source"
+
+# Source docker-development envars
+[[ -s "$HOME/Code/decisio/docker-development/.env_docker_development" ]] && source "$HOME/Code/decisio/docker-development/.env_docker_development"
