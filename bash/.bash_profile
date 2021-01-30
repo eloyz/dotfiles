@@ -26,10 +26,6 @@ if [ -f ~/.bashrc ]; then
    source ~/.bashrc
 fi
 
-if [ -f ~/.prompt ]; then
-   source ~/.prompt
-fi
-
 _codefresh_completions()
 {
     local cur args type_list
@@ -49,3 +45,5 @@ _codefresh_completions()
     return 0
 }
 complete -F _codefresh_completions cf
+# Startship cross-shell prompt
+eval "$(starship init bash)"
