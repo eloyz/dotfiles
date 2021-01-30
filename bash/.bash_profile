@@ -49,5 +49,13 @@ complete -F _codefresh_completions cf
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Open Anybar and set alias
+# https://github.com/tonsky/AnyBar
+# open -a AnyBar;  # Currently started via "Users & Groups > Login Items"
+# echo -n "black" | nc -4u -w0 localhost 1738;  # Use this for testing
+# function anybar { echo -n $1 | nc -4u -w0 localhost ${2:-1738}; }
+# --------------------------
+
 # Startship cross-shell prompt
 eval "$(starship init bash)"
